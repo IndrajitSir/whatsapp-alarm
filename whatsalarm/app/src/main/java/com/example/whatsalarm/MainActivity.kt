@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding.switchEnable.isChecked = prefs.getBoolean("enabled", true)
 
         binding.keywords.setText(
-            prefs.getString("keywords", "good morning,meeting,urgent")
+            prefs.getString("keywords", "good morning,meeting,urgent,container")
         )
 
         binding.btnQuietStart.text = prefs.getString("quietStart", "22:00")
@@ -37,6 +37,13 @@ class MainActivity : AppCompatActivity() {
         // ----- SAVE KEYWORDS -----
         binding.saveBtn.setOnClickListener {
             prefs.edit().putString("keywords", binding.keywords.text.toString()).apply()
+
+            // Show Toast
+            android.widget.Toast.makeText(this, "Keywords saved ✅", android.widget.Toast.LENGTH_SHORT).show()
+
+            // Change button text temporarily
+            binding.saveBtn.text = "Saved!"
+            binding.saveBtn.postDelayed({ binding.saveBtn.text = "Save" }, 1500)
         }
 
         // ----- QUIET HOURS PICKERS -----

@@ -8,41 +8,45 @@ import java.util.*
 class WhatsAppListener : NotificationListenerService() {
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
-
         val pkg = sbn.packageName ?: return
-        if (!pkg.contains("com.whatsapp")) return   // only WhatsApp
+        if (!pkg.contains("com.whatsapp")) return // only WhatsApp
 
         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        if (!prefs.getBoolean("enabled", true)) return // master toggle
 
-        // master toggle
-        if (!prefs.getBoolean("enabled", true)) return
-
-        // quiet hours
         val quietStart = prefs.getString("quietStart", "22:00")!!
-        val quietEnd   = prefs.getString("quietEnd", "07:00")!!
-        if (inQuietHours(quietStart, quietEnd)) return
+        val quietEnd = prefs.getString("quietEnd", "07:00")!!
+        if (inQuietHours(quietStart, quietEnd)) return // quiet hours
 
-        // keywords
-        val text = sbn.notification.extras.getString("android.text")?.lowercase() ?: ""
-        val list = prefs.getString("keywords", "")!!
+        // Get all possible text from notification
+        val extras = sbn.notification.extras
+        val texts = mutableListOf<String>()
+        extras.getCharSequence("android.text")?.let { texts.add(it.toString().lowercase()) }
+        extras.getCharSequence("android.bigText")?.let { texts.add(it.toString().lowercase()) }
+        extras.getCharSequence("android.title")?.let { texts.add(it.toString().lowercase()) }
+
+        if (texts.isEmpty()) return // nothing to match
+
+        val keywords = prefs.getString("keywords", "")!!
             .split(",")
             .map { it.trim().lowercase() }
             .filter { it.isNotEmpty() }
 
-        if (list.any { text.contains(it) }) {
+        // Check if any text line contains any keyword
+        if (texts.any { text -> keywords.any { keyword -> text.contains(keyword) } }) {
             val tone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
             val r = RingtoneManager.getRingtone(applicationContext, tone)
             r.play()
         }
     }
 
-    private fun inQuietHours(start:String, end:String): Boolean {
+    private fun inQuietHours(start: String, end: String): Boolean {
         val now = Calendar.getInstance()
         val cur = now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)
 
-        fun mins(s:String): Int {
+        fun mins(s: String): Int {
             val p = s.split(":")
-            return p[0].toInt()*60 + p[1].toInt()
+            return p[0].toInt() * 60 + p[1].toInt()
         }
 
         val s = mins(start)
