@@ -62,9 +62,12 @@ class MainActivity : AppCompatActivity() {
         TimePickerDialog(
             this,
             { _, h, m ->
-                val t = "%02d:%02d".format(h, m)
-                prefs.edit().putString(key, t).apply()
+                // Convert to 12-hour format with AM/PM
+                val hour12 = if (h % 12 == 0) 12 else h % 12
+                val amPm = if (h < 12) "AM" else "PM"
+                val t = "%02d:%02d %s".format(hour12, m, amPm)
 
+                prefs.edit().putString(key, "%02d:%02d".format(h, m)).apply() // still store 24-hour format
                 if (key == "quietStart") binding.btnQuietStart.text = t
                 else binding.btnQuietEnd.text = t
             },
