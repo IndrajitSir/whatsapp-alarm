@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.Switch;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -39,10 +40,13 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final Switch switchEnable;
 
+  @NonNull
+  public final TextView tvTitle;
+
   private ActivityMainBinding(@NonNull ScrollView rootView,
       @NonNull MaterialButton btnOpenNotifAccess, @NonNull MaterialButton btnQuietEnd,
       @NonNull MaterialButton btnQuietStart, @NonNull TextInputEditText keywords,
-      @NonNull MaterialButton saveBtn, @NonNull Switch switchEnable) {
+      @NonNull MaterialButton saveBtn, @NonNull Switch switchEnable, @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.btnOpenNotifAccess = btnOpenNotifAccess;
     this.btnQuietEnd = btnQuietEnd;
@@ -50,6 +54,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.keywords = keywords;
     this.saveBtn = saveBtn;
     this.switchEnable = switchEnable;
+    this.tvTitle = tvTitle;
   }
 
   @Override
@@ -115,8 +120,14 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvTitle;
+      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitle == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((ScrollView) rootView, btnOpenNotifAccess, btnQuietEnd,
-          btnQuietStart, keywords, saveBtn, switchEnable);
+          btnQuietStart, keywords, saveBtn, switchEnable, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

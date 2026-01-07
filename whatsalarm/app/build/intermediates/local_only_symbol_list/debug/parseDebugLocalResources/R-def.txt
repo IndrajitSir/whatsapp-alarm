@@ -6,7 +6,9 @@ id btnQuietStart
 id keywords
 id saveBtn
 id switchEnable
+id tvTitle
 layout activity_main
+mipmap ic_launcher
 raw alarm_default
 raw alarm_family
 raw alarm_office

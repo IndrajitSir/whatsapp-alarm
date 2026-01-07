@@ -1,7 +1,23 @@
 [
     {
+        "merged": "com.example.whatsalarm.app-debug-31:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.whatsalarm.app-main-33:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.whatsalarm.app-debug-31:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.whatsalarm.app-main-33:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.whatsalarm.app-debug-31:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.whatsalarm.app-main-33:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
         "merged": "com.example.whatsalarm.app-debug-31:/layout_activity_main.xml.flat",
         "source": "com.example.whatsalarm.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.whatsalarm.app-debug-31:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.whatsalarm.app-main-33:/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "com.example.whatsalarm.app-debug-31:/raw_alarm_family.txt.flat",
@@ -10,6 +26,10 @@
     {
         "merged": "com.example.whatsalarm.app-debug-31:/raw_alarm_office.txt.flat",
         "source": "com.example.whatsalarm.app-main-33:/raw/alarm_office.txt"
+    },
+    {
+        "merged": "com.example.whatsalarm.app-debug-31:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.whatsalarm.app-main-33:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "com.example.whatsalarm.app-debug-31:/raw_alarm_default.txt.flat",

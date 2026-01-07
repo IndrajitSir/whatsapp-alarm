@@ -20,14 +20,6 @@
             android:layout_marginBottom="16dp"/>
 
         <!-- Enable WhatsAlarm -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="WhatsAlarm"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
