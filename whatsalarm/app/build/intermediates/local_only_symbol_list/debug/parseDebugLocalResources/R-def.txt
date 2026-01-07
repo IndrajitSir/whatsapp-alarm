@@ -1,0 +1,13 @@
+R_DEF: Internal format may change without notice
+local
+id btnOpenNotifAccess
+id btnQuietEnd
+id btnQuietStart
+id keywords
+id saveBtn
+id switchEnable
+layout activity_main
+raw alarm_default
+raw alarm_family
+raw alarm_office
+string app_name
