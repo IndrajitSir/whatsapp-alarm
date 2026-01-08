@@ -44,33 +44,42 @@ class AlarmService : Service() {
     }
 
     private fun startAlarm() {
-        if (mediaPlayer != null) return  // Already playing
+    if (mediaPlayer != null) return
 
-        val prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
-        val toneUri = prefs.getString("alarmTone", null)?.let { Uri.parse(it) }
-            ?: android.media.RingtoneManager.getDefaultUri(android.media.RingtoneManager.TYPE_ALARM)
+    val prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
+    val toneUri = prefs.getString("alarmTone", null)?.let { Uri.parse(it) }
+        ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
 
-        mediaPlayer = MediaPlayer().apply {
-            setDataSource(applicationContext, toneUri)
-            setAudioStreamType(AudioManager.STREAM_ALARM)
-            isLooping = true
-            prepare()
-            start()
-        }
-
-        // Show popup alert with keyword
-        lastKeyword?.let { keyword ->
-            val popupIntent = Intent(this, AlarmPopupActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            putExtra(AlarmPopupActivity.EXTRA_KEYWORD, keyword)
-            }
-            startActivity(popupIntent)
-        }
-
-
-        // Optional: Show persistent notification
-        createNotification()
+    mediaPlayer = MediaPlayer().apply {
+        setDataSource(applicationContext, toneUri)
+        setAudioStreamType(AudioManager.STREAM_ALARM)
+        isLooping = true
+        prepare()
+        start()
     }
+
+    // Full-screen notification for alarm
+    val popupIntent = Intent(this, AlarmPopupActivity::class.java).apply {
+        putExtra(AlarmPopupActivity.EXTRA_KEYWORD, lastKeyword)
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+    val pendingIntent = PendingIntent.getActivity(
+        this, 0, popupIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
+
+    val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+        .setContentTitle("WhatsAlarm is ringing")
+        .setContentText(lastKeyword?.let { "Keyword: $it" } ?: "")
+        .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .setCategory(NotificationCompat.CATEGORY_ALARM)
+        .setFullScreenIntent(pendingIntent, true) // this makes it show on lock screen / minimized
+        .build()
+
+    startForeground(1, notification)
+}
+
 
     private fun stopAlarm() {
         mediaPlayer?.stop()
