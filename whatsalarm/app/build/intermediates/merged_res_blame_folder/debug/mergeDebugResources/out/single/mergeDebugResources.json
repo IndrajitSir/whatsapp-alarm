@@ -20,6 +20,10 @@
         "source": "com.example.whatsalarm.app-main-33:/mipmap-xhdpi/ic_launcher.png"
     },
     {
+        "merged": "com.example.whatsalarm.app-debug-31:/layout_activity_alarm_popup.xml.flat",
+        "source": "com.example.whatsalarm.app-main-33:/layout/activity_alarm_popup.xml"
+    },
+    {
         "merged": "com.example.whatsalarm.app-debug-31:/raw_alarm_family.txt.flat",
         "source": "com.example.whatsalarm.app-main-33:/raw/alarm_family.txt"
     },

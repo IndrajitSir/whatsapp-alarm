@@ -9,6 +9,8 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!-- App Title -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -24,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -44,7 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Keywords (comma separated)"
-            android:paddingTop="16dp" />
+            android:paddingTop="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/keywords"
@@ -92,11 +97,20 @@
                 android:layout_marginStart="8dp"/>
         </LinearLayout>
 
+        <!-- Notification Access -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOpenNotifAccess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Open Notification Access"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Ringtone Picker -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChooseRingtone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Alarm Ringtone"
             android:layout_marginTop="12dp"/>
 
     </LinearLayout>

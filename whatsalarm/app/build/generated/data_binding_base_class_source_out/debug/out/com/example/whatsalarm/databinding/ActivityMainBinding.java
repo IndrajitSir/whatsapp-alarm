@@ -23,13 +23,25 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final MaterialButton btnChooseRingtone;
+
+  @NonNull
   public final MaterialButton btnOpenNotifAccess;
+
+  @NonNull
+  public final MaterialButton btnPause;
 
   @NonNull
   public final MaterialButton btnQuietEnd;
 
   @NonNull
   public final MaterialButton btnQuietStart;
+
+  @NonNull
+  public final MaterialButton btnResume;
+
+  @NonNull
+  public final MaterialButton btnStop;
 
   @NonNull
   public final TextInputEditText keywords;
@@ -44,13 +56,19 @@ public final class ActivityMainBinding implements ViewBinding {
   public final TextView tvTitle;
 
   private ActivityMainBinding(@NonNull ScrollView rootView,
-      @NonNull MaterialButton btnOpenNotifAccess, @NonNull MaterialButton btnQuietEnd,
-      @NonNull MaterialButton btnQuietStart, @NonNull TextInputEditText keywords,
+      @NonNull MaterialButton btnChooseRingtone, @NonNull MaterialButton btnOpenNotifAccess,
+      @NonNull MaterialButton btnPause, @NonNull MaterialButton btnQuietEnd,
+      @NonNull MaterialButton btnQuietStart, @NonNull MaterialButton btnResume,
+      @NonNull MaterialButton btnStop, @NonNull TextInputEditText keywords,
       @NonNull MaterialButton saveBtn, @NonNull Switch switchEnable, @NonNull TextView tvTitle) {
     this.rootView = rootView;
+    this.btnChooseRingtone = btnChooseRingtone;
     this.btnOpenNotifAccess = btnOpenNotifAccess;
+    this.btnPause = btnPause;
     this.btnQuietEnd = btnQuietEnd;
     this.btnQuietStart = btnQuietStart;
+    this.btnResume = btnResume;
+    this.btnStop = btnStop;
     this.keywords = keywords;
     this.saveBtn = saveBtn;
     this.switchEnable = switchEnable;
@@ -84,9 +102,21 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnChooseRingtone;
+      MaterialButton btnChooseRingtone = ViewBindings.findChildViewById(rootView, id);
+      if (btnChooseRingtone == null) {
+        break missingId;
+      }
+
       id = R.id.btnOpenNotifAccess;
       MaterialButton btnOpenNotifAccess = ViewBindings.findChildViewById(rootView, id);
       if (btnOpenNotifAccess == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPause;
+      MaterialButton btnPause = ViewBindings.findChildViewById(rootView, id);
+      if (btnPause == null) {
         break missingId;
       }
 
@@ -99,6 +129,18 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.btnQuietStart;
       MaterialButton btnQuietStart = ViewBindings.findChildViewById(rootView, id);
       if (btnQuietStart == null) {
+        break missingId;
+      }
+
+      id = R.id.btnResume;
+      MaterialButton btnResume = ViewBindings.findChildViewById(rootView, id);
+      if (btnResume == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStop;
+      MaterialButton btnStop = ViewBindings.findChildViewById(rootView, id);
+      if (btnStop == null) {
         break missingId;
       }
 
@@ -126,8 +168,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ScrollView) rootView, btnOpenNotifAccess, btnQuietEnd,
-          btnQuietStart, keywords, saveBtn, switchEnable, tvTitle);
+      return new ActivityMainBinding((ScrollView) rootView, btnChooseRingtone, btnOpenNotifAccess,
+          btnPause, btnQuietEnd, btnQuietStart, btnResume, btnStop, keywords, saveBtn, switchEnable,
+          tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

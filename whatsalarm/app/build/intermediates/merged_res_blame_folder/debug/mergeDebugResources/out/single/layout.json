@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.whatsalarm.app-mergeDebugResources-30:/layout/activity_alarm_popup.xml",
+        "source": "com.example.whatsalarm.app-main-33:/layout/activity_alarm_popup.xml"
+    },
+    {
         "merged": "com.example.whatsalarm.app-mergeDebugResources-30:/layout/activity_main.xml",
         "source": "com.example.whatsalarm.app-main-33:/layout/activity_main.xml"
     }

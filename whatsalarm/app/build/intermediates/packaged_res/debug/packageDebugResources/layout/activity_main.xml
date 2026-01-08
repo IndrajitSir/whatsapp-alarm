@@ -9,6 +9,8 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!-- App Title -->
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -20,19 +22,12 @@
             android:layout_marginBottom="16dp"/>
 
         <!-- Enable WhatsAlarm -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="WhatsAlarm"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="12dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -52,7 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Keywords (comma separated)"
-            android:paddingTop="16dp" />
+            android:paddingTop="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/keywords"
@@ -100,11 +97,60 @@
                 android:layout_marginStart="8dp"/>
         </LinearLayout>
 
+        <!-- Notification Access -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOpenNotifAccess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Open Notification Access"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Alarm Controls -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alarm Controls"
+            android:paddingTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPause"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pause"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnResume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resume"
+                android:layout_marginStart="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Ringtone Picker -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChooseRingtone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Alarm Ringtone"
             android:layout_marginTop="12dp"/>
 
     </LinearLayout>

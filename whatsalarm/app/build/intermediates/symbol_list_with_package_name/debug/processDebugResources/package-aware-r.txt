@@ -3205,9 +3205,14 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnChooseRingtone
 id btnOpenNotifAccess
+id btnPause
 id btnQuietEnd
 id btnQuietStart
+id btnResume
+id btnStop
+id btnStopAlarm
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3591,6 +3596,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvKeyword
 id tvTitle
 id unchecked
 id uniform
@@ -3730,6 +3736,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_alarm_popup
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

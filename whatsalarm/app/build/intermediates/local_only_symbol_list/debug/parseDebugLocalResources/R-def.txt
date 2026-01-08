@@ -1,12 +1,19 @@
 R_DEF: Internal format may change without notice
 local
+id btnChooseRingtone
 id btnOpenNotifAccess
+id btnPause
 id btnQuietEnd
 id btnQuietStart
+id btnResume
+id btnStop
+id btnStopAlarm
 id keywords
 id saveBtn
 id switchEnable
+id tvKeyword
 id tvTitle
+layout activity_alarm_popup
 layout activity_main
 mipmap ic_launcher
 raw alarm_default

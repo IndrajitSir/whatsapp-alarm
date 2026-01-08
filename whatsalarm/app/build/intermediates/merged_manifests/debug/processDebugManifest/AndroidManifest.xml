@@ -8,6 +8,10 @@
         android:minSdkVersion="26"
         android:targetSdkVersion="34" />
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <permission
         android:name="com.example.whatsalarm.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -24,6 +28,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.DayNight.NoActionBar" >
+
+        <!-- Main Activity -->
         <activity
             android:name="com.example.whatsalarm.MainActivity"
             android:exported="true" >
@@ -33,7 +39,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.whatsalarm.AlarmPopupActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <!-- Notification Listener -->
         <service
             android:name="com.example.whatsalarm.WhatsAppListener"
             android:exported="false"
@@ -43,6 +54,12 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+
+        <!-- Alarm Service -->
+        <service
+            android:name="com.example.whatsalarm.AlarmService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback|connectedDevice" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

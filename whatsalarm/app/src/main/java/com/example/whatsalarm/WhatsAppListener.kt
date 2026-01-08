@@ -1,42 +1,63 @@
 package com.example.whatsalarm
 
-import android.media.RingtoneManager
+import android.content.Intent
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import java.util.*
+import java.util.Calendar
 
 class WhatsAppListener : NotificationListenerService() {
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
+
+        // Only react to WhatsApp notifications
         val pkg = sbn.packageName ?: return
-        if (!pkg.contains("com.whatsapp")) return // only WhatsApp
+        if (!pkg.contains("com.whatsapp")) return
 
         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-        if (!prefs.getBoolean("enabled", true)) return // master toggle
 
+        // Master toggle
+        if (!prefs.getBoolean("enabled", true)) return
+
+        // Quiet hours check
         val quietStart = prefs.getString("quietStart", "22:00")!!
-        val quietEnd = prefs.getString("quietEnd", "07:00")!!
-        if (inQuietHours(quietStart, quietEnd)) return // quiet hours
+        val quietEnd   = prefs.getString("quietEnd", "07:00")!!
+        if (inQuietHours(quietStart, quietEnd)) return
 
-        // Get all possible text from notification
+        // Pull *all* possible text from the notification
         val extras = sbn.notification.extras
         val texts = mutableListOf<String>()
+
         extras.getCharSequence("android.text")?.let { texts.add(it.toString().lowercase()) }
         extras.getCharSequence("android.bigText")?.let { texts.add(it.toString().lowercase()) }
         extras.getCharSequence("android.title")?.let { texts.add(it.toString().lowercase()) }
 
-        if (texts.isEmpty()) return // nothing to match
+        if (texts.isEmpty()) return
 
+        // Keywords
         val keywords = prefs.getString("keywords", "")!!
             .split(",")
             .map { it.trim().lowercase() }
             .filter { it.isNotEmpty() }
 
-        // Check if any text line contains any keyword
-        if (texts.any { text -> keywords.any { keyword -> text.contains(keyword) } }) {
-            val tone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-            val r = RingtoneManager.getRingtone(applicationContext, tone)
-            r.play()
+        if (keywords.isEmpty()) return
+
+        // Check for match and find the first keyword matched
+        var matchedKeyword: String? = null
+        loop@ for (text in texts) {
+            for (keyword in keywords) {
+                if (text.contains(keyword)) {
+                    matchedKeyword = keyword
+                    break@loop
+                }
+            }
+        }
+
+        // Trigger alarm service if a keyword matched
+        matchedKeyword?.let {
+            val intent = Intent(this, AlarmService::class.java)
+            intent.action = "START_ALARM"
+            intent.putExtra("keyword", it)  // pass matched keyword
+            startService(intent)
         }
     }
 
@@ -52,6 +73,7 @@ class WhatsAppListener : NotificationListenerService() {
         val s = mins(start)
         val e = mins(end)
 
+        // Handles ranges that cross midnight
         return if (s < e) (cur in s..e) else (cur >= s || cur <= e)
     }
 }
