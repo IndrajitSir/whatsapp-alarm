@@ -51,13 +51,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
         }
 
-        // ----- PAUSE / RESUME ALARM BUTTON -----
-        binding.btnPause.setOnClickListener {
-            val intent = Intent(this, AlarmService::class.java)
-            intent.action = "PAUSE_ALARM"
-            startService(intent)
-        }
-
         // ----- CHOOSE RINGTONE -----
         binding.btnChooseRingtone.setOnClickListener {
             val intent = Intent(RingtoneManager.ACTION_RINGTONE_PICKER).apply {

@@ -29,19 +29,10 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton btnOpenNotifAccess;
 
   @NonNull
-  public final MaterialButton btnPause;
-
-  @NonNull
   public final MaterialButton btnQuietEnd;
 
   @NonNull
   public final MaterialButton btnQuietStart;
-
-  @NonNull
-  public final MaterialButton btnResume;
-
-  @NonNull
-  public final MaterialButton btnStop;
 
   @NonNull
   public final TextInputEditText keywords;
@@ -57,18 +48,14 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull ScrollView rootView,
       @NonNull MaterialButton btnChooseRingtone, @NonNull MaterialButton btnOpenNotifAccess,
-      @NonNull MaterialButton btnPause, @NonNull MaterialButton btnQuietEnd,
-      @NonNull MaterialButton btnQuietStart, @NonNull MaterialButton btnResume,
-      @NonNull MaterialButton btnStop, @NonNull TextInputEditText keywords,
-      @NonNull MaterialButton saveBtn, @NonNull Switch switchEnable, @NonNull TextView tvTitle) {
+      @NonNull MaterialButton btnQuietEnd, @NonNull MaterialButton btnQuietStart,
+      @NonNull TextInputEditText keywords, @NonNull MaterialButton saveBtn,
+      @NonNull Switch switchEnable, @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.btnChooseRingtone = btnChooseRingtone;
     this.btnOpenNotifAccess = btnOpenNotifAccess;
-    this.btnPause = btnPause;
     this.btnQuietEnd = btnQuietEnd;
     this.btnQuietStart = btnQuietStart;
-    this.btnResume = btnResume;
-    this.btnStop = btnStop;
     this.keywords = keywords;
     this.saveBtn = saveBtn;
     this.switchEnable = switchEnable;
@@ -114,12 +101,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnPause;
-      MaterialButton btnPause = ViewBindings.findChildViewById(rootView, id);
-      if (btnPause == null) {
-        break missingId;
-      }
-
       id = R.id.btnQuietEnd;
       MaterialButton btnQuietEnd = ViewBindings.findChildViewById(rootView, id);
       if (btnQuietEnd == null) {
@@ -129,18 +110,6 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.btnQuietStart;
       MaterialButton btnQuietStart = ViewBindings.findChildViewById(rootView, id);
       if (btnQuietStart == null) {
-        break missingId;
-      }
-
-      id = R.id.btnResume;
-      MaterialButton btnResume = ViewBindings.findChildViewById(rootView, id);
-      if (btnResume == null) {
-        break missingId;
-      }
-
-      id = R.id.btnStop;
-      MaterialButton btnStop = ViewBindings.findChildViewById(rootView, id);
-      if (btnStop == null) {
         break missingId;
       }
 
@@ -169,8 +138,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ScrollView) rootView, btnChooseRingtone, btnOpenNotifAccess,
-          btnPause, btnQuietEnd, btnQuietStart, btnResume, btnStop, keywords, saveBtn, switchEnable,
-          tvTitle);
+          btnQuietEnd, btnQuietStart, keywords, saveBtn, switchEnable, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

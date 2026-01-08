@@ -37,7 +37,6 @@ class AlarmService : Service() {
                 lastKeyword = intent.getStringExtra("keyword")
                 startAlarm()
             }
-            "PAUSE_ALARM" -> togglePause()
             "STOP_ALARM" -> stopAlarm()
         }
 

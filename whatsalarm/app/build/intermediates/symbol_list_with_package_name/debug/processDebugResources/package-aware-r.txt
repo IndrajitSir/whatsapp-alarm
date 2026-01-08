@@ -3207,11 +3207,8 @@ id bounceEnd
 id bounceStart
 id btnChooseRingtone
 id btnOpenNotifAccess
-id btnPause
 id btnQuietEnd
 id btnQuietStart
-id btnResume
-id btnStop
 id btnStopAlarm
 id buttonPanel
 id cache_measures
