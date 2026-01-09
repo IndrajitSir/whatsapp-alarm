@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
+import android.os.Build
 
 class AlarmPopupActivity : Activity() {
 
@@ -37,10 +38,12 @@ class AlarmPopupActivity : Activity() {
 
         // Stop Alarm button
         findViewById<MaterialButton>(R.id.btnStopAlarm).setOnClickListener {
-            val stopIntent = Intent(this, AlarmService::class.java)
-            stopIntent.action = "STOP_ALARM"
+                val stopIntent = Intent(this, AlarmService::class.java).apply {
+                action = "STOP_ALARM"
+            }
+
             startService(stopIntent)
-            finish() // Close the popup
+            finish()
         }
 
         // Optional: Close the dialog when keyword text is clicked

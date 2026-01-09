@@ -29,12 +29,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton btnOpenNotifAccess;
 
   @NonNull
-  public final MaterialButton btnQuietEnd;
-
-  @NonNull
-  public final MaterialButton btnQuietStart;
-
-  @NonNull
   public final TextInputEditText keywords;
 
   @NonNull
@@ -48,14 +42,11 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull ScrollView rootView,
       @NonNull MaterialButton btnChooseRingtone, @NonNull MaterialButton btnOpenNotifAccess,
-      @NonNull MaterialButton btnQuietEnd, @NonNull MaterialButton btnQuietStart,
       @NonNull TextInputEditText keywords, @NonNull MaterialButton saveBtn,
       @NonNull Switch switchEnable, @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.btnChooseRingtone = btnChooseRingtone;
     this.btnOpenNotifAccess = btnOpenNotifAccess;
-    this.btnQuietEnd = btnQuietEnd;
-    this.btnQuietStart = btnQuietStart;
     this.keywords = keywords;
     this.saveBtn = saveBtn;
     this.switchEnable = switchEnable;
@@ -101,18 +92,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnQuietEnd;
-      MaterialButton btnQuietEnd = ViewBindings.findChildViewById(rootView, id);
-      if (btnQuietEnd == null) {
-        break missingId;
-      }
-
-      id = R.id.btnQuietStart;
-      MaterialButton btnQuietStart = ViewBindings.findChildViewById(rootView, id);
-      if (btnQuietStart == null) {
-        break missingId;
-      }
-
       id = R.id.keywords;
       TextInputEditText keywords = ViewBindings.findChildViewById(rootView, id);
       if (keywords == null) {
@@ -138,7 +117,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ScrollView) rootView, btnChooseRingtone, btnOpenNotifAccess,
-          btnQuietEnd, btnQuietStart, keywords, saveBtn, switchEnable, tvTitle);
+          keywords, saveBtn, switchEnable, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

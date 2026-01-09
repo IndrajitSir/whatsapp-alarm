@@ -2,8 +2,6 @@ R_DEF: Internal format may change without notice
 local
 id btnChooseRingtone
 id btnOpenNotifAccess
-id btnQuietEnd
-id btnQuietStart
 id btnStopAlarm
 id keywords
 id saveBtn

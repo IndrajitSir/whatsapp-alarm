@@ -32,6 +32,7 @@ class AlarmService : Service() {
 
         when (intent?.action) {
             "START_ALARM" -> {
+                if (mediaPlayer != null) return START_STICKY
                 lastKeyword = intent.getStringExtra("keyword")
                 startForeground(NOTIF_ID, buildNotification())
                 startAlarmSound()
@@ -64,7 +65,7 @@ class AlarmService : Service() {
             )
             isLooping = true
             setOnPreparedListener { start() }
-            prepareAsync() // 🔥 IMPORTANT: async, no ANR
+            prepareAsync() 
         }
     }
 
@@ -72,8 +73,15 @@ class AlarmService : Service() {
         mediaPlayer?.stop()
         mediaPlayer?.release()
         mediaPlayer = null
+
+        getSharedPreferences("settings", MODE_PRIVATE)
+            .edit()
+            .putBoolean("alarm_running", false)
+            .apply()
+
         stopForeground(true)
     }
+
 
     private fun buildNotification(): Notification {
 
@@ -92,7 +100,7 @@ class AlarmService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
             .setContentTitle("WhatsAlarm is ringing")
-            .setContentText(lastKeyword?.let { "Keyword: $it" })
+            .setContentText("Keyword: ${lastKeyword ?: "Detected"}")
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setFullScreenIntent(fullScreenPendingIntent, true)

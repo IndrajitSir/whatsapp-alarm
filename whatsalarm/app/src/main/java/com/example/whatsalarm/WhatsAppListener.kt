@@ -3,7 +3,7 @@ package com.example.whatsalarm
 import android.content.Intent
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import java.util.Calendar
+import android.os.Build
 
 class WhatsAppListener : NotificationListenerService() {
 
@@ -17,7 +17,7 @@ class WhatsAppListener : NotificationListenerService() {
 
         // Master toggle
         if (!prefs.getBoolean("enabled", true)) return
-
+        if (prefs.getBoolean("alarm_running", false)) return
         // Pull *all* possible text from the notification
         val extras = sbn.notification.extras
         val texts = mutableListOf<String>()
@@ -52,7 +52,12 @@ class WhatsAppListener : NotificationListenerService() {
             val intent = Intent(this, AlarmService::class.java)
             intent.action = "START_ALARM"
             intent.putExtra("keyword", it)  // pass matched keyword
-            startService(intent)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(intent)
+            } else {
+                startService(intent)
+            }
         }
     }
 }
