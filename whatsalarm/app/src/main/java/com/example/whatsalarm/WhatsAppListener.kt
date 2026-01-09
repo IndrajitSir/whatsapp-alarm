@@ -18,11 +18,6 @@ class WhatsAppListener : NotificationListenerService() {
         // Master toggle
         if (!prefs.getBoolean("enabled", true)) return
 
-        // Quiet hours check
-        val quietStart = prefs.getString("quietStart", "22:00")!!
-        val quietEnd   = prefs.getString("quietEnd", "07:00")!!
-        if (inQuietHours(quietStart, quietEnd)) return
-
         // Pull *all* possible text from the notification
         val extras = sbn.notification.extras
         val texts = mutableListOf<String>()
@@ -59,21 +54,5 @@ class WhatsAppListener : NotificationListenerService() {
             intent.putExtra("keyword", it)  // pass matched keyword
             startService(intent)
         }
-    }
-
-    private fun inQuietHours(start: String, end: String): Boolean {
-        val now = Calendar.getInstance()
-        val cur = now.get(Calendar.HOUR_OF_DAY) * 60 + now.get(Calendar.MINUTE)
-
-        fun mins(s: String): Int {
-            val p = s.split(":")
-            return p[0].toInt() * 60 + p[1].toInt()
-        }
-
-        val s = mins(start)
-        val e = mins(end)
-
-        // Handles ranges that cross midnight
-        return if (s < e) (cur in s..e) else (cur >= s || cur <= e)
     }
 }

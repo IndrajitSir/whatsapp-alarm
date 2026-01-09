@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Alarm Popup Activity -->
         <activity
             android:name=".AlarmPopupActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

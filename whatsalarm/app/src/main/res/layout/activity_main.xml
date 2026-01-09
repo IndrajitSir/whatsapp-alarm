@@ -65,38 +65,6 @@
             android:text="Save"
             android:layout_marginTop="8dp"/>
 
-        <!-- Quiet Hours -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quiet Hours"
-            android:paddingTop="16dp"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="8dp"
-            android:gravity="center_vertical">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnQuietStart"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="22:00"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnQuietEnd"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="07:00"
-                android:layout_marginStart="8dp"/>
-        </LinearLayout>
-
         <!-- Notification Access -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOpenNotifAccess"

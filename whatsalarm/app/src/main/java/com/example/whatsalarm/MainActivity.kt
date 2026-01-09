@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         // ----- INITIAL UI VALUES -----
         binding.switchEnable.isChecked = prefs.getBoolean("enabled", true)
-        binding.keywords.setText(prefs.getString("keywords", "good morning,meeting,urgent,container"))
-        binding.btnQuietStart.text = formatTimeForDisplay(prefs.getString("quietStart","22:00")!!)
-        binding.btnQuietEnd.text = formatTimeForDisplay(prefs.getString("quietEnd","07:00")!!)
+        binding.keywords.setText(prefs.getString("keywords", "good morning,meeting,urgent"))
 
         // ----- TOGGLE ON/OFF -----
         binding.switchEnable.setOnCheckedChangeListener { _, value ->
@@ -41,10 +39,6 @@ class MainActivity : AppCompatActivity() {
             binding.saveBtn.text = "Saved!"
             binding.saveBtn.postDelayed({ binding.saveBtn.text = "Save" },1500)
         }
-
-        // ----- QUIET HOURS PICKERS -----
-        binding.btnQuietStart.setOnClickListener { pickTime("quietStart") }
-        binding.btnQuietEnd.setOnClickListener { pickTime("quietEnd") }
 
         // ----- OPEN NOTIFICATION ACCESS -----
         binding.btnOpenNotifAccess.setOnClickListener {
@@ -61,32 +55,6 @@ class MainActivity : AppCompatActivity() {
             }
             startActivityForResult(intent, 101)
         }
-    }
-
-    private fun pickTime(key: String) {
-        val cal = Calendar.getInstance()
-
-        TimePickerDialog(
-            this,
-            { _, h, m ->
-                val tDisplay = formatTimeForDisplay("%02d:%02d".format(h,m))
-                prefs.edit().putString(key, "%02d:%02d".format(h,m)).apply()
-                if (key == "quietStart") binding.btnQuietStart.text = tDisplay
-                else binding.btnQuietEnd.text = tDisplay
-            },
-            cal.get(Calendar.HOUR_OF_DAY),
-            cal.get(Calendar.MINUTE),
-            true
-        ).show()
-    }
-
-    private fun formatTimeForDisplay(time24: String): String {
-        val parts = time24.split(":")
-        val h = parts[0].toInt()
-        val m = parts[1].toInt()
-        val amPm = if (h < 12) "AM" else "PM"
-        val h12 = if (h % 12 == 0) 12 else h % 12
-        return "%02d:%02d %s".format(h12, m, amPm)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
