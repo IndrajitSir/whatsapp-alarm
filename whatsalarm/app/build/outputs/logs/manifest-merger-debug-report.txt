@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-49:12
-INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-49:12
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-50:12
+INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-50:12
+INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-50:12
+INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:2:1-50:12
 MERGED from [androidx.databinding:viewbinding:8.7.0] /home/codespace/.gradle/caches/9.2.1/transforms/eaa4d3cead70e37efe405c5d2a774c93/transformed/jetified-viewbinding-8.7.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] /home/codespace/.gradle/caches/9.2.1/transforms/2c3da833293d0a372f148ea53b37c8ec/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/fb0eaf684b80c169e21ad61bdfd85a98/transformed/constraintlayout-2.2.0/AndroidManifest.xml:2:1-9:12
@@ -62,9 +62,13 @@ uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:6:5-76
 	android:name
 		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:6:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:7:5-92
+	android:name
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:7:22-89
 application
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:8:5-48:19
-INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:8:5-48:19
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:9:5-49:19
+INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:9:5-49:19
 MERGED from [com.google.android.material:material:1.12.0] /home/codespace/.gradle/caches/9.2.1/transforms/2c3da833293d0a372f148ea53b37c8ec/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /home/codespace/.gradle/caches/9.2.1/transforms/2c3da833293d0a372f148ea53b37c8ec/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/codespace/.gradle/caches/9.2.1/transforms/fb0eaf684b80c169e21ad61bdfd85a98/transformed/constraintlayout-2.2.0/AndroidManifest.xml:7:5-20
@@ -86,65 +90,65 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/codespace/.gradle/cac
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /home/codespace/.gradle/caches/9.2.1/transforms/fabf129a9be66e685e70f7743441098f/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:11:9-35
 	android:roundIcon
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:12:9-48
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:13:9-48
 	android:icon
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:11:9-43
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:14:9-68
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:15:9-68
 activity#com.example.whatsalarm.MainActivity
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:17:9-24:20
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:18:9-25:20
 	android:exported
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:19:13-36
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:20:13-36
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:18:13-41
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:19:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:20:13-23:29
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:21:17-69
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:21:25-66
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:23:27-74
 activity#com.example.whatsalarm.AlarmPopupActivity
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:27:9-30:40
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:28:9-31:40
 	android:exported
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:30:13-37
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:31:13-37
 	android:theme
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:29:13-72
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:30:13-72
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:28:13-47
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:29:13-47
 service#com.example.whatsalarm.WhatsAppListener
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:33:9-41:19
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:34:9-42:19
 	android:label
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:35:13-48
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:36:13-48
 	android:exported
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:37:13-37
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:38:13-37
 	android:permission
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:36:13-87
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:37:13-87
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:34:13-45
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:35:13-45
 intent-filter#action:name:android.service.notification.NotificationListenerService
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:38:13-40:29
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:39:13-41:29
 action#android.service.notification.NotificationListenerService
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:39:17-99
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:40:17-99
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:39:25-96
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:40:25-96
 service#com.example.whatsalarm.AlarmService
-ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:44:9-47:77
+ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:45:9-48:77
 	android:exported
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:46:13-37
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:47:13-37
 	android:foregroundServiceType
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:47:13-74
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:48:13-74
 	android:name
-		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:45:13-41
+		ADDED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml:46:13-41
 uses-sdk
 INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /workspaces/whatsapp-alarm/whatsalarm/app/src/main/AndroidManifest.xml
